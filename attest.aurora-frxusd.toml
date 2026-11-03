@@ -1,5 +1,5 @@
 producer_repo = "https://github.com/pegahcarter/frax-oft-upgradeable"
-producer_commit = "1aa5b2137f80bc7f880001638566c57c3d213a23"
+producer_commit = "08ac2bfa99abc92168f5c637c95fdba41a086148"
 producer_setup = "ln -s $GITHUB_WORKSPACE/node_modules node_modules"
 expected_forge_version = "1.8.1"
 

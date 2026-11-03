@@ -27,7 +27,7 @@ jobs:
           config: attest.aurora-frxusd.toml
           foundry-version: v1.8.1
         env:
-          FOUNDRY_FFI: 'true'
+          FOUNDRY_PROFILE: aurora_attest
           DEPRECATE_CHAIN_ID: '1313161554'
           TARGET_CHAIN_ID: '252'
           SKIP_DEPRECATE_CHAIN_SIM: 'true'
