@@ -1,0 +1,41 @@
+name: Aurora frxUSD attestation
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  attest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: crossecute/forge-attest
+          ref: 81f37c317170759989575a43dacd7d94ea19efbf
+          path: forge-attest
+          persist-credentials: false
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: v1.8.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '10.17.1'
+      - name: Verify the committed batch
+        run: bash scripts/ops/DeprecateChain/attest-aurora-frxusd.sh hash "$PWD/forge-attest"
+      - name: Install locked producer dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts --config.node-linker=hoisted
+      - name: Replay the producer
+        run: bash scripts/ops/DeprecateChain/attest-aurora-frxusd.sh replay "$PWD/forge-attest"
+      - name: Simulate the exact batch
+        run: bash scripts/ops/DeprecateChain/attest-aurora-frxusd.sh simulate "$PWD/forge-attest"
