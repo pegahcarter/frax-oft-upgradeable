@@ -64,12 +64,11 @@ case "$mode" in
     jq --arg rpc "$local_rpc" '(.Proxy[] | select(.chainid == 252) | .RPC) = $rpc' \
       scripts/L0Config.json > config.tmp
     mv config.tmp scripts/L0Config.json
-    output=scripts/ops/DeprecateChain/txs/deprecate-FRXUSD/Deprecate-252-1313161554-FRXUSD.json
-    rm -f "$output"
-    BYPASS_CHAIN_CALLS=false DEPRECATE_TOKEN=FRXUSD SOURCE_CHAIN_ID=252 TARGET_CHAIN_ID=1313161554 \
-      forge script scripts/ops/DeprecateChain/DeprecateToken.s.sol:DeprecateToken \
-      --fork-url "$local_rpc" --ffi
-    verify_batch "$output"
+    rm -f "$batch"
+    FOUNDRY_SRC=scripts/ops/DeprecateChain BYPASS_CHAIN_CALLS=false \
+      DEPRECATE_CHAIN_ID=1313161554 TARGET_CHAIN_ID=252 SKIP_DEPRECATE_CHAIN_SIM=true \
+      forge script scripts/ops/DeprecateChain/DeprecateChain.s.sol:DeprecateChain --ffi
+    verify_batch "$batch"
     ;;
   simulate)
     verify_batch "$batch"
