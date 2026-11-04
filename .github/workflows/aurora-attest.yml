@@ -1,4 +1,4 @@
-name: Aurora frxUSD attestation
+name: Aurora OFT attestation
 
 on:
   pull_request:
@@ -24,7 +24,7 @@ jobs:
       - run: pnpm install --frozen-lockfile --ignore-scripts --config.node-linker=hoisted
       - uses: crossecute/forge-attest@81f37c317170759989575a43dacd7d94ea19efbf
         with:
-          config: attest.aurora-frxusd.toml
+          config: attest.aurora.toml
           foundry-version: v1.8.1
         env:
           FOUNDRY_PROFILE: aurora_attest

@@ -1,0 +1,68 @@
+producer_repo = "https://github.com/pegahcarter/frax-oft-upgradeable"
+producer_commit = "08ac2bfa99abc92168f5c637c95fdba41a086148"
+producer_setup = "ln -s $GITHUB_WORKSPACE/node_modules node_modules"
+expected_forge_version = "1.8.1"
+
+[[run]]
+# The producer pins its internal fork via DEPRECATE_FORK_BLOCK.
+script = "scripts/ops/DeprecateChain/DeprecateChain.s.sol:DeprecateChain"
+
+[[run.claim]]
+output_path = "scripts/ops/DeprecateChain/txs/deprecate-1313161554/Deprecate-252-1313161554-FRXUSD.json"
+input_format = "tx-builder"
+chain_id = "252"
+safe_address = "0x5f25218ed9474b721d6a38c115107428e832fa2e"
+safe_nonce = "555"
+safe_version = "1.3.0"
+multisend_address = "0xa1dabef33b3b82c7814b6d82a79e50f4ac44102b"
+live = false
+expected_canonical_sha256 = "aed515d4fcef6d3ec73d743b18296c1dec9d77a0dfcd4ec4ba2b40989adc2b92"
+expected_safe_tx_hash = "0x172efcdc827b2736ce406e11292f9f760ce3aea6b09316a3e58e6ac105d84a07"
+
+[[run.claim]]
+output_path = "scripts/ops/DeprecateChain/txs/deprecate-1313161554/Deprecate-252-1313161554-FRXETH.json"
+input_format = "tx-builder"
+chain_id = "252"
+safe_address = "0x5f25218ed9474b721d6a38c115107428e832fa2e"
+safe_nonce = "554"
+safe_version = "1.3.0"
+multisend_address = "0xa1dabef33b3b82c7814b6d82a79e50f4ac44102b"
+live = false
+expected_canonical_sha256 = "a11c03fe0122d249d40a325d623c749335d4b271a51909b8c379f86df34b977f"
+expected_safe_tx_hash = "0x5ebe6180dc180aba2b9384e3b9b0b8f63070078319af084ea9800db73b28409b"
+
+[[run.claim]]
+output_path = "scripts/ops/DeprecateChain/txs/deprecate-1313161554/Deprecate-252-1313161554-SFRXETH.json"
+input_format = "tx-builder"
+chain_id = "252"
+safe_address = "0x5f25218ed9474b721d6a38c115107428e832fa2e"
+safe_nonce = "556"
+safe_version = "1.3.0"
+multisend_address = "0xa1dabef33b3b82c7814b6d82a79e50f4ac44102b"
+live = false
+expected_canonical_sha256 = "f5c05c00f43590002823f71d0ed0456f11628dbd97c2a2f572869b9c921d9f83"
+expected_safe_tx_hash = "0xbd7d94c51adcbc4f066d43ca17d487968167e20b86f65c1a1eb5b3cd8569859f"
+
+[[run.claim]]
+output_path = "scripts/ops/DeprecateChain/txs/deprecate-1313161554/Deprecate-252-1313161554-SFRXUSD.json"
+input_format = "tx-builder"
+chain_id = "252"
+safe_address = "0x5f25218ed9474b721d6a38c115107428e832fa2e"
+safe_nonce = "557"
+safe_version = "1.3.0"
+multisend_address = "0xa1dabef33b3b82c7814b6d82a79e50f4ac44102b"
+live = false
+expected_canonical_sha256 = "55a1b7575318cbf863d53df9c37ccf352c0abf256f0c8be9959f1e9840974e85"
+expected_safe_tx_hash = "0xc73d4f0a714df912f3b7afb62d2f16bc93f99e903a52dbbad70bfea5f81f3421"
+
+[[run.claim]]
+output_path = "scripts/ops/DeprecateChain/txs/deprecate-1313161554/Deprecate-252-1313161554-WFRAX.json"
+input_format = "tx-builder"
+chain_id = "252"
+safe_address = "0x5f25218ed9474b721d6a38c115107428e832fa2e"
+safe_nonce = "558"
+safe_version = "1.3.0"
+multisend_address = "0xa1dabef33b3b82c7814b6d82a79e50f4ac44102b"
+live = false
+expected_canonical_sha256 = "32f5284889c6c3ea4690e237640325b4bb4a22613d33cae7a887837a1be18bdb"
+expected_safe_tx_hash = "0x7f6f5ad94834c882f651c2835b735f2d9f4bdb6051251d6bc21550efeffc1038"
