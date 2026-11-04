@@ -52,3 +52,7 @@ optimizer_runs = 200
 
 [etherscan]
 fraxtal = { key = "${ETHERSCAN_API_KEY}", url = "${FRAXSCAN_API_URL}" }
+
+[profile.aurora_attest]
+src = 'scripts/ops/DeprecateChain'
+ffi = true

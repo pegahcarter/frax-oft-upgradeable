@@ -118,7 +118,10 @@ abstract contract DeprecateOFTBase is DeployFraxOFTProtocol {
         simulateConfig = _simulateConfig;
         _populateConnectedOfts();
 
-        vm.createSelectFork(_simulateConfig.RPC);
+        string memory rpc = vm.envOr("DEPRECATE_FORK_RPC_URL", _simulateConfig.RPC);
+        uint256 forkBlock = vm.envOr("DEPRECATE_FORK_BLOCK", uint256(0));
+        if (forkBlock == 0) vm.createSelectFork(rpc);
+        else vm.createSelectFork(rpc, forkBlock);
         vm.startPrank(_simulateConfig.delegate);
         _;
         vm.stopPrank();
