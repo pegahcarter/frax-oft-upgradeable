@@ -21,15 +21,7 @@ jobs:
       - uses: pnpm/action-setup@v4
         with:
           version: '10.17.1'
-      - run: pnpm install --frozen-lockfile --ignore-scripts --config.node-linker=hoisted
-      - uses: crossecute/forge-attest@81f37c317170759989575a43dacd7d94ea19efbf
+      - uses: crossecute/forge-attest@5918f6ca66f7c8383977890ad8f147a97a4ec042
         with:
           config: attest.aurora.toml
           foundry-version: v1.8.1
-        env:
-          FOUNDRY_PROFILE: aurora_attest
-          DEPRECATE_CHAIN_ID: '1313161554'
-          TARGET_CHAIN_ID: '252'
-          SKIP_DEPRECATE_CHAIN_SIM: 'true'
-          DEPRECATE_FORK_RPC_URL: https://rpc.frax.com
-          DEPRECATE_FORK_BLOCK: '41874116'
