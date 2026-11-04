@@ -21,7 +21,7 @@ jobs:
       - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
         with:
           version: '10.17.1'
-      - uses: crossecute/forge-attest@e7f58f2e60742759f85d6ad4dd2f3130d4f1ae38
+      - uses: crossecute/forge-attest@9d8905bee25689f0346dfd3db2cc4a5cad0ce31f # v1.2.0
         with:
           config: attest.aurora.toml
           foundry-version: v1.8.1
