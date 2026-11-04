@@ -1,10 +1,11 @@
+# The pinned demo producer includes replay overrides and a Foundry profile absent from upstream PR #168.
 producer_repo = "https://github.com/pegahcarter/frax-oft-upgradeable"
 producer_commit = "08ac2bfa99abc92168f5c637c95fdba41a086148"
 producer_setup = "pnpm install --frozen-lockfile --ignore-scripts --config.node-linker=hoisted"
 expected_forge_version = "1.8.1"
 
 [[run]]
-# The producer pins its internal fork via DEPRECATE_FORK_BLOCK.
+# The producer reads the historical fork settings from [run.env].
 script = "scripts/ops/DeprecateChain/DeprecateChain.s.sol:DeprecateChain"
 
 [run.env]
